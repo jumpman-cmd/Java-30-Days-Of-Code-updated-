@@ -1,33 +1,84 @@
 import java.util.Scanner;
+import java.lang.Math;
 
-public class Solution {
+public class Solution
+{
+    private double meal_cost;
+    private int tip_percent;
+    private int tax_percent;
 
-    public static void solve(double meal_cost, int tip_percent, int tax_percent) {
-        // Calculate the tip and tax amounts
-        double tip = meal_cost * (tip_percent / 100.0);
-        double tax = meal_cost * (tax_percent / 100.0);
-
-        // Calculate the total cost
-        double total_cost = meal_cost + tip + tax;
-
-        // Round the total cost to the nearest integer
-        int rounded_total_cost = (int) Math.round(total_cost);
-
-        // Print the rounded total cost
-        System.out.println(rounded_total_cost);
+    // Constructors
+    public Solution(double meal, int tip, int tax)
+    {
+        this.meal_cost = meal;
+        this.tip_percent = tip;
+        this.tax_percent = tax;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    // Solution methods
+    /** public int calculateTipPercent()
+     {
+     tip_percent = (meal_cost / 100) * tip_percent;
+     return tip_percent;
+     }
 
-        // Read inputs
-        double meal_cost = scanner.nextDouble();
-        int tip_percent = scanner.nextInt();
-        int tax_percent = scanner.nextInt();
+     public int calculateTaxPercent()
+     {
+     tax_percent = (tax_percent / 100) * meal_cost;
+     return tax_percent;
+     } **/
 
-        // Solve the problem
-        solve(meal_cost, tip_percent, tax_percent);
+    public double totalCost()
+    {
+        double tip = (meal_cost * tip_percent / 100);
+        double tax = (tax_percent * meal_cost / 100);
+        double total_cost = meal_cost + tip + tax;
+        return Math.round(total_cost);
+    }
 
-        scanner.close();
+    // Mutator methods
+    public void setMealCost(double meal)
+    {
+        meal_cost = meal;
+    }
+
+    public void setTipPercent(int tip)
+    {
+        tip_percent = tip;
+    }
+
+    public void setTaxPercent(int tax)
+    {
+        tax_percent = tax;
+    }
+
+    // Accessor methods
+    public double getMealCost()
+    {
+        return meal_cost;
+    }
+
+    public int getTipPercent()
+    {
+        return tip_percent;
+    }
+
+    public int getTaxPercent()
+    {
+        return tax_percent;
+    }
+
+
+    public static void main(String args[])
+    {
+        Scanner scan = new Scanner(System.in);
+        double meal_cost = scan.nextDouble();
+        int tip_percent = scan.nextInt();
+        int tax_percent = scan.nextInt();
+
+        Solution object1 = new Solution(meal_cost, tip_percent, tax_percent);
+
+        System.out.println((int) object1.totalCost());
+        scan.close();
     }
 }
