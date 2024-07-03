@@ -14,5 +14,4 @@ This solution is implemented in Java.
 5. Follow the prompts and enter the required input when prompted.
 6. The program will print "Hello, World." followed by the value of the input variable.
 
-## You've Got This!
-You're all set to tackle the HackerRank Day 0 Challenge. Good luck and happy coding!
+This is the easiest...anyways - Hello, World.
