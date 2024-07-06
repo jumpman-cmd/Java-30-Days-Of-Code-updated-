@@ -13,6 +13,6 @@ Ready to dive in? Follow these steps to get started with the Java 30 Days of Cod
 ## Let's Code Together!
 Join me (/us) on this coding journey as we explore Java programming concepts and sharpen our coding skills. Whether you're an expert or a beginner its fine come along bruv, there's always something new to learn. Let's code together and make progress every day!
 
-Happy coding! 🚀
+Happy coding!🚀
 
 Chase the bag!!!!!!
