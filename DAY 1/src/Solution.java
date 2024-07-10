@@ -1,4 +1,4 @@
-import java.util.Scanner; // Import the Scanner class.
+import java.util.Scanner;
 
 public class Solution
 {
@@ -13,16 +13,13 @@ public class Solution
        Scanner myObj = new Scanner(System.in); // Created a Scanner object.
        // System.out.println("Enter a whole number, enter a one decimal number and enter few words:");
 
-       // Numerical input
         int wholeNumber = myObj.nextInt();
         double decimalNumber = myObj.nextDouble();
         myObj.nextLine();
 
-        // String input
         String nameOrFewWords = myObj.nextLine();
         myObj.close();
-
-        // Output input by user
+        
         System.out.println(i + wholeNumber);
         System.out.println(d + decimalNumber);
         System.out.println(s + nameOrFewWords);
