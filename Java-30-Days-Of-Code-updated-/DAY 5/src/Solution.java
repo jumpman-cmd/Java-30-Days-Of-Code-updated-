@@ -1,16 +1,16 @@
+import java.awt.*;
 import java.util.Scanner;
 
 public class Solution
 {
-    public static void main(String[] args)
+    public static void main(String args[])
     {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-
+        Scanner scan = new Scanner(System.in);
+        int anyNumber = scan.nextInt();
         for (int i = 1; i <= 10; i++)
         {
-            System.out.println(n + " x " + i + " = " + (n * i));
+            System.out.println(anyNumber + " x " + i + " = " + anyNumber * i);
         }
-        scanner.close();
+        scan.close();
     }
 }
