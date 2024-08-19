@@ -1,41 +1,36 @@
-import java.util.*;
-import java.io.*;
+// This problem took me some time to finally figure it out ewwh. Line 23!
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Solution
 {
-    public static void main(String[] args)
+    public static void main(String args[])
     {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        in.nextLine();
-
+        Scanner scan = new Scanner(System.in);
         Map<String, String> phoneBook = new HashMap<>();
-
-
-
-        for (int i = 0; i < n; i++)
+        int T = scan.nextInt();
+        //scan.nextLine();
+        for (int i = 0; i < T; i++)
         {
-            String name = in.next();
-            String phone = in.next();
-            phoneBook.put(name, phone);
+            String name = scan.next();
+            String contact = scan.next();
+            phoneBook.put(name, contact);
         }
-
-
-
-        while (in.hasNext())
-        {
-            String query = in.next();
+        
+        while (scan.hasNext())
+        { // On the below line (23) I was writing...scan.nextLine() and not getting the desired results.
+            String query = scan.next(); // But I finally figured it out, scan.next(); the correct code.
             if (phoneBook.containsKey(query))
             {
                 System.out.println(query + "=" + phoneBook.get(query));
             }
-
+            
             else
             {
                 System.out.println("Not found");
             }
         }
-
-        in.close();
+        scan.close();
     }
 }
