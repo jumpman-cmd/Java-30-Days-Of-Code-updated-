@@ -14,7 +14,7 @@ class Person
         this.idNumber = identification;
     }
 
-    // Print person data
+    // Print Person data
     public void printPerson()
     {
         System.out.println("Name: " + lastName + ", " + firstName);
