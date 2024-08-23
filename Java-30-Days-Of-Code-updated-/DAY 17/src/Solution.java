@@ -1,35 +1,57 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-class Calculator
+class NegativeInputException extends Exception
 {
-    int power(int n, int p) throws Exception
+    public NegativeInputException(String message)
     {
-        if (n < 0 || p < 0)
-        {
-            throw new Exception("n and p should be non-negative");
-        }
-        return (int) Math.pow(n, p);
+        super(message);
     }
 }
 
-public class Solution
+class Calculator
 {
-    public static void main(String[] args)
+    double n, p;
+
+    // I was getting an error here, it took me 3 hours to finally-luckily realise it.
+    // I was writing this constructor as: public Calculator(double n, double p) - error!
+    public Calculator() 
+    {
+        this.n = n;
+        this.p = p;
+    }
+    
+    public static double power(double n, double p) throws NegativeInputException
+    {
+        if(n < 0 || p < 0)
+        {
+            throw new NegativeInputException("n and p should be non-negative");
+        }
+        double ans = Math.pow(n, p);
+        return ans;
+    }
+}
+
+class Solution
+{
+    public static void main(String[] args) 
     {
         Scanner in = new Scanner(System.in);
-        Calculator myCalculator = new Calculator();
-        int T = in.nextInt();
-
-        while (T-- > 0)
+        int t = in.nextInt();
+        
+        while (t-- > 0) 
         {
-            int n = in.nextInt();
-            int p = in.nextInt();
-            try
+            double n = in.nextInt();
+            double p = in.nextInt();
+            
+            Calculator myCalculator = new Calculator();
+            try 
             {
-                System.out.println(myCalculator.power(n, p));
+                double ans = myCalculator.power(n, p);
+                System.out.println((int) ans);
             }
-
-            catch (Exception e)
+            
+            catch (Exception e) 
             {
                 System.out.println(e.getMessage());
             }
