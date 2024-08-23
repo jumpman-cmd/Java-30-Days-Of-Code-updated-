@@ -9,52 +9,48 @@ class Difference
 {
     private int[] elements;
     public int maximumDifference;
-
-    // Add your code here
-    // Constructor to initialize the elements array
-    public Difference(int[] elements)
+    
+    public Difference(int[] array)
     {
-        this.elements = elements;
+        this.elements = array;
     }
-
-    // Method to compute the maximum difference
+    
     public void computeDifference()
     {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-
-        for (int element : elements)
+        int max = elements[0];
+        int min = elements[0];
+        
+        for(int i = 0; i < elements.length; i++)
         {
-            if (element < min)
+            if(max > elements[i])
             {
-                min = element;
+                max = elements[i];
             }
-
-            if (element > max)
+            
+            if(min < elements[i])
             {
-                max = element;
+                min = elements[i];
             }
-        }
-
-        maximumDifference = max - min;
+            
+            maximumDifference = Math.abs(max - min);
+        }        
     }
-
-} // End of Difference class
+}
 
 public class Solution
 {
-    public static void main(String[] args)
+    public static void main(String[] args) 
     {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++)
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) 
         {
-            a[i] = sc.nextInt();
+            array[i] = scan.nextInt();
         }
-        sc.close();
+        scan.close();
 
-        Difference difference = new Difference(a);
+        Difference difference = new Difference(array);
 
         difference.computeDifference();
 
