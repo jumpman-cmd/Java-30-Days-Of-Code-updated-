@@ -2,7 +2,7 @@
 
 ## Objective
 
-Today, we're getting started with Exceptions by learning how to parse an integer from a string and print a custom error message.
+Today, its Exceptions, lets see how to parse an integer from a string and print a custom error message.
 
 ## Task
 
