@@ -1,37 +1,38 @@
-import java.util.Scanner;
+// Most of the code was written for me in the stdin.
 
-interface AdvancedArithmetic
-{
-    int divisorSum(int n);
+import java.io.*;
+import java.util.*;
+
+interface AdvancedArithmetic{
+   int divisorSum(int n);
 }
-
-class Calculator implements AdvancedArithmetic
+class Calculator implements AdvancedArithmetic 
 {
-    public int divisorSum(int n)
+    public int divisorSum(int n) 
     {
-        int sum = 0;
-        for (int i = 1; i <= n; i++)
+        int divisorsSum = 0;
+        for(int i = 1; i <= n; i++) // I was getting an error here, my code was int i = 0, instead of 1, cos n / 0 = error.
         {
-            if (n % i == 0)
+            if(n % i == 0)
             {
-                sum += i;
+                divisorsSum = divisorsSum + i;
             }
         }
-        return sum;
+    
+        return divisorsSum;
     }
 }
 
-public class Solution
-{
-    public static void main(String[] args)
-    {
+class Solution {
+
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
         scan.close();
-
-        AdvancedArithmetic myCalculator = new Calculator();
+        
+      	AdvancedArithmetic myCalculator = new Calculator(); 
         int sum = myCalculator.divisorSum(n);
-        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName());
+        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
         System.out.println(sum);
     }
 }
