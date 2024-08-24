@@ -1,72 +1,62 @@
+// Most of the code was provided for me in the stdn. I just had to add the methods.
+// My code - starts at Line 8, ends at Line 31.
+
 import java.io.*;
 import java.util.*;
 
-public class Solution
-{
-    // Stack and Queue instance variables
-    private Stack<Character> stack;
-    private Queue<Character> queue;
+public class Solution {
+    // Write your code here.
+    Stack<Character> st = new Stack<>();
+    Queue<Character> qu = new LinkedList<>();
+    
+     void pushCharacter(char ch)
+     {
+         st.push(ch);
+     }
+     
+     void enqueueCharacter(char ch)
+     {
+         qu.add(ch);
+     }
+     
+     char popCharacter()
+     {
+         return st.pop();
+     }
+     
+     char dequeueCharacter()
+     {
+         return qu.remove();
+     }
 
-    // Constructor
-    public Solution()
-    {
-        stack = new Stack<>();
-        queue = new LinkedList<>();
-    }
-
-    // Method to push character onto stack
-    public void pushCharacter(char ch)
-    {
-        stack.push(ch);
-    }
-
-    // Method to enqueue character in queue
-    public void enqueueCharacter(char ch)
-    {
-        queue.add(ch);
-    }
-
-    // Method to pop character from stack
-    public char popCharacter()
-    {
-        return stack.pop();
-    }
-
-    // Method to dequeue character from queue
-    public char dequeueCharacter()
-    {
-        return queue.remove();
-    }
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         scan.close();
 
-        // Create Solution object
+        // Convert input String to an array of characters:
+        char[] s = input.toCharArray();
+
+        // Create a Solution object:
         Solution p = new Solution();
 
-        // Enqueue and push all characters of the input string
-        for (char c : input.toCharArray())
-        {
+        // Enqueue/Push all chars to their respective data structures:
+        for (char c : s) {
             p.pushCharacter(c);
             p.enqueueCharacter(c);
         }
 
-        // Check if the input string is a palindrome
+        // Pop/Dequeue the chars at the head of both data structures and compare them:
         boolean isPalindrome = true;
-        for (int i = 0; i < input.length(); i++)
-        {
-            if (p.popCharacter() != p.dequeueCharacter())
-            {
-                isPalindrome = false;
+        for (int i = 0; i < s.length/2; i++) {
+            if (p.popCharacter() != p.dequeueCharacter()) {
+                isPalindrome = false;                
                 break;
             }
         }
 
-        // Print the result
-        System.out.println("The word, " + input + ", is "
-                + (isPalindrome ? "a palindrome." : "not a palindrome."));
+        //Finally, print whether string s is palindrome or not.
+        System.out.println( "The word, " + input + ", is " 
+                           + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
     }
 }
