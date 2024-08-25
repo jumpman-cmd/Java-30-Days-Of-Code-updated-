@@ -1,40 +1,39 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Solution
 {
     public static void main(String[] args)
     {
-        Scanner scanner = new Scanner(System.in);
-
-        int actualDay = scanner.nextInt();
-        int actualMonth = scanner.nextInt();
-        int actualYear = scanner.nextInt();
-
-        int expectedDay = scanner.nextInt();
-        int expectedMonth = scanner.nextInt();
-        int expectedYear = scanner.nextInt();
-
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        // Library Book(s) declaration
+        
+        Scanner scan = new Scanner(System.in);
+        int actuallyReturnDay = scan.nextInt();
+        int actuallyReturnMonth = scan.nextInt();
+        int actuallyReturnYear = scan.nextInt();
+        int expectedReturnDay = scan.nextInt();
+        int expectedReturnMonth = scan.nextInt();
+        int expectedReturnYear = scan.nextInt();
+        
         int fine = 0;
-
-        if (actualYear > expectedYear)
+        
+        if(actuallyReturnYear > expectedReturnYear)
         {
             fine = 10000;
         }
-
-        else if (actualYear == expectedYear)
+        
+        else if(actuallyReturnYear == expectedReturnYear && actuallyReturnMonth > expectedReturnMonth)
         {
-            if (actualMonth > expectedMonth)
-            {
-                fine = 500 * (actualMonth - expectedMonth);
-            }
-
-            else if (actualMonth == expectedMonth && actualDay > expectedDay)
-            {
-                fine = 15 * (actualDay - expectedDay);
-            }
+            fine = 500 * (actuallyReturnMonth - expectedReturnMonth);
         }
-
+        
+        else if(actuallyReturnYear == expectedReturnYear && actuallyReturnMonth == expectedReturnMonth && actuallyReturnDay > expectedReturnDay)
+        {
+            fine = 15 * (actuallyReturnDay - expectedReturnDay);
+        }
+        
         System.out.println(fine);
-        scanner.close();
     }
 }
