@@ -1,39 +1,45 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class Solution
-{
-    // Generic function to print array elements
-    public static <T> void printArray(T[] array)
+class Printer <T> {
+
+    /**
+    *    Method Name: printArray
+    *    Print each element of the generic array on a new line. Do not return anything.
+    *    @param A generic array
+    **/
+    
+    // Write your code here
+    public static <T> void printArray(T myList[])
     {
-        for (T element : array)
+        for(int myList_i = 0; myList_i < myList.length; myList_i++)
         {
-            System.out.println(element);
+            System.out.println(myList[myList_i]);
         }
     }
-    public static void main(String[] args)
-    {
-        Scanner scanner = new Scanner(System.in);
+}
 
-        // Read first array of integers
+public class Generics {
+    
+    public static void main(String args[]){
+        Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         Integer[] intArray = new Integer[n];
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             intArray[i] = scanner.nextInt();
         }
 
-        // Read second array of strings
-        int m = scanner.nextInt();
-        String[] stringArray = new String[m];
-        for (int i = 0; i < m; i++)
-        {
+        n = scanner.nextInt();
+        String[] stringArray = new String[n];
+        for (int i = 0; i < n; i++) {
             stringArray[i] = scanner.next();
         }
-
-        scanner.close();
-
-        // Call generic method to print arrays
-        printArray(intArray);
-        printArray(stringArray);
-    }
+        
+        Printer<Integer> intPrinter = new Printer<Integer>();
+        Printer<String> stringPrinter = new Printer<String>();
+        intPrinter.printArray( intArray  );
+        stringPrinter.printArray( stringArray );
+        if(Printer.class.getDeclaredMethods().length > 1){
+            System.out.println("The Printer class should only have 1 method named printArray.");
+        }
+    } 
 }
