@@ -1,46 +1,45 @@
+// Some of the code was already written in the stdin, but still I had to edit it
+// to make this program work. The comments from line 21 - 34 were already written for me.
+
 import java.util.Scanner;
 
 public class Solution
 {
-    public static void main(String[] args)
+    public static void main(String args[])
     {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int[] a = new int[n];
-
-        for (int i = 0; i < n; i++)
+        Scanner scan = new Scanner(System.in);
+        int T = scan.nextInt(); // T - number of Times
+        int[] a = new int[T];
+        for(int a_i = 0; a_i < T; a_i++)
         {
-            a[i] = scanner.nextInt();
+            a[a_i] = scan.nextInt();
         }
-        scanner.close();
-
-        int totalSwaps = 0;
-
-        for (int i = 0; i < n; i++)
+        
+        int numberOfSwaps = 0;
+        for (int i = 0; i < T; i++) 
         {
-            int numberOfSwaps = 0;
-
-            for (int j = 0; j < n - 1; j++)
+            // Track number of elements swapped during a single array traversal
+            for (int j = 0; j < T - 1; j++) 
             {
-                if (a[j] > a[j + 1])
+                // Swap adjacent elements if they are in decreasing order
+                if (a[j] > a[j + 1]) 
                 {
-                    // Swap adjacent elements
-                    int temp = a[j];
+                    int aElements = a[j];
                     a[j] = a[j + 1];
-                    a[j + 1] = temp;
+                    a[j + 1] = aElements;
                     numberOfSwaps++;
-                    totalSwaps++;
                 }
             }
             
-            if (numberOfSwaps == 0)
+            // If no elements were swapped during a traversal, array is sorted
+            if (numberOfSwaps == 0) 
             {
                 break;
             }
         }
-
-        System.out.println("Array is sorted in " + totalSwaps + " swaps.");
+        
+        System.out.println("Array is sorted in " + numberOfSwaps + " swaps.");
         System.out.println("First Element: " + a[0]);
-        System.out.println("Last Element: " + a[n - 1]);
+        System.out.println("Last Element: " + a[T - 1]);
     }
 }
