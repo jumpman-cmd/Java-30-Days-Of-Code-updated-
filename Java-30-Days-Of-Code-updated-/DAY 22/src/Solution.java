@@ -9,22 +9,23 @@ class Node{
     }
 }
 class Solution{
-
-	public static int getHeight(Node root)
+    
+public static int getHeight(Node root)
+{
+    //Write your code here
+    if(root == null)
     {
-      //Write your code here
-      if(root == null)
-      {
-          return -1;
-      }
-      
-      else
-      {
-          int leftHeight = getHeight(root.left);
-          int rightHeight = getHeight(root.right);
-          return Math.max(leftHeight, rightHeight) + 1;
-      }
+        return -1;
     }
+    
+    else
+    {
+        int rightHeight = getHeight(root.right);
+        int leftHeight = getHeight(root.left);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+        
+}
 
     public static Node insert(Node root,int data){
         if(root==null){
