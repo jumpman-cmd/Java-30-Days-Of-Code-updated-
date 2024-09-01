@@ -1,39 +1,57 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution
+public class Solution 
 {
-    public static void main(String[] args)
+    public static void main(String[] args) 
     {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         
-        // Library Book(s) declaration
+        Scanner sc = new Scanner(System.in);
         
-        Scanner scan = new Scanner(System.in);
-        int actuallyReturnDay = scan.nextInt();
-        int actuallyReturnMonth = scan.nextInt();
-        int actuallyReturnYear = scan.nextInt();
-        int expectedReturnDay = scan.nextInt();
-        int expectedReturnMonth = scan.nextInt();
-        int expectedReturnYear = scan.nextInt();
+        int expectedReturnDay = sc.nextInt();
+        int expectedReturnMonth = sc.nextInt();
+        int expectedReturnYear = sc.nextInt();
         
-        int fine = 0;
+        int actualReturnDay = sc.nextInt();
+        int actualReturnMonth = sc.nextInt();
+        int actualReturnYear = sc.nextInt();
         
-        if(actuallyReturnYear > expectedReturnYear)
+        if(expectedReturnYear > actualReturnYear)
         {
-            fine = 10000;
+            int fine = 10000;
+            System.out.println(fine);
         }
         
-        else if(actuallyReturnYear == expectedReturnYear && actuallyReturnMonth > expectedReturnMonth)
+        else if(expectedReturnMonth > actualReturnMonth && expectedReturnYear == actualReturnYear)
         {
-            fine = 500 * (actuallyReturnMonth - expectedReturnMonth);
+            int fine = 500 * (expectedReturnMonth - actualReturnMonth);
+            
+            if(fine < 0)
+            {
+                fine = fine * -1;
+            }
+            
+            System.out.println(fine);
         }
         
-        else if(actuallyReturnYear == expectedReturnYear && actuallyReturnMonth == expectedReturnMonth && actuallyReturnDay > expectedReturnDay)
+        else if(expectedReturnDay > actualReturnDay && expectedReturnMonth == actualReturnMonth && expectedReturnYear == actualReturnYear)
         {
-            fine = 15 * (actuallyReturnDay - expectedReturnDay);
+            int fine = 15 * (expectedReturnDay - actualReturnDay);
+            
+            if(fine < 0)
+            {
+                fine = fine * -1;
+            }
+            
+            System.out.println(fine);
         }
         
-        System.out.println(fine);
+        else
+        {
+            int fine = 0;
+            System.out.println(fine);
+        }
+        sc.close();
     }
 }
